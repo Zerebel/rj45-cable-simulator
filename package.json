@@ -1,0 +1,33 @@
+{
+  "name": "rj45-cable-simulator",
+  "version": "1.0.0",
+  "description": "An ethernet cable simulator",
+  "main": "index.js",
+  "scripts": {
+    "tail": "tailwindcss -i ./Assets/Style/index.css -o ./Assets/Style/output.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zerebel/rj45-cable-simulator.git"
+  },
+  "keywords": [
+    "Zerebel",
+    "Cable",
+    "ethernet",
+    "javascript",
+    "css",
+    "tailwind",
+    "sass",
+    "scss",
+    "git"
+  ],
+  "author": "Zerebel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Zerebel/rj45-cable-simulator/issues"
+  },
+  "homepage": "https://github.com/Zerebel/rj45-cable-simulator#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.2.1"
+  }
+}

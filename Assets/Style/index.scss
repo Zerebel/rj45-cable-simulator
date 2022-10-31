@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@mixin gradient-background($color1, $color2) {
+  background: linear-gradient(45deg, $color1 50%, $color2 50%);
+}
+@mixin repeat-gradient-background($color1, $color2) {
+  background: repeating-linear-gradient(
+    45deg,
+    $color1,
+    $color1 10px,
+    $color2 10px,
+    $color2 20px
+  );
+}
+
+.bg-orange-white {
+  @include gradient-background(#ffa500, white);
+}
+.bg-orange-white-repeat {
+  @include repeat-gradient-background(#ffa500, white);
+}
+.bg-green-white {
+  @include gradient-background(#008000, white);
+}
+.bg-green-white-repeat {
+  @include repeat-gradient-background(#008000, white);
+}
+.bg-blue-white {
+  @include gradient-background(#0000ff, white);
+}
+.bg-blue-white-repeat {
+  @include repeat-gradient-background(#0000ff, white);
+}
+.bg-brown-white {
+  @include gradient-background(#6f4403, white);
+}
+.bg-brown-white-repeat {
+  @include repeat-gradient-background(#6f4403, white);
+}

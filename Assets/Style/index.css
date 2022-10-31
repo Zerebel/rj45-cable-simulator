@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.bg-orange-white {
+  background: linear-gradient(45deg, #ffa500 50%, white 50%);
+}
+
+.bg-orange-white-repeat {
+  background: repeating-linear-gradient(45deg, #ffa500, #ffa500 10px, white 10px, white 20px);
+}
+
+.bg-green-white {
+  background: linear-gradient(45deg, #008000 50%, white 50%);
+}
+
+.bg-green-white-repeat {
+  background: repeating-linear-gradient(45deg, #008000, #008000 10px, white 10px, white 20px);
+}
+
+.bg-blue-white {
+  background: linear-gradient(45deg, #0000ff 50%, white 50%);
+}
+
+.bg-blue-white-repeat {
+  background: repeating-linear-gradient(45deg, #0000ff, #0000ff 10px, white 10px, white 20px);
+}
+
+.bg-brown-white {
+  background: linear-gradient(45deg, #6f4403 50%, white 50%);
+}
+
+.bg-brown-white-repeat {
+  background: repeating-linear-gradient(45deg, #6f4403, #6f4403 10px, white 10px, white 20px);
+}
+
+/*# sourceMappingURL=index.css.map */

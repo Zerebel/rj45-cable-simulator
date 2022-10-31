@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ethernet Cable Termination</title>
+    <link rel="stylesheet" href="Assets/Style/output.css" />
+  </head>
+  <body class="bg-slate-100">
+    <header class="text-center bg-slate-400 text-slate-200 text-5xl py-4">
+      <h1>Ethernet Cable Termination</h1>
+    </header>
+    <main class="my-4 relative">
+      <section
+        class="w-fit m-auto bg-slate-300 flex justify-center gap-4 p-4 rounded-md">
+        <button class="color-pick w-8 h-8 rounded-md bg-orange-white"></button>
+        <button class="color-pick w-8 h-8 rounded-md bg-[#ffa500]"></button>
+        <button class="color-pick w-8 h-8 rounded-md bg-green-white"></button>
+        <button class="color-pick w-8 h-8 rounded-md bg-[#008000]"></button>
+        <button class="color-pick w-8 h-8 rounded-md bg-blue-white"></button>
+        <button class="color-pick w-8 h-8 rounded-md bg-[#0000ff]"></button>
+        <button class="color-pick w-8 h-8 rounded-md bg-brown-white"></button>
+        <button class="color-pick w-8 h-8 rounded-md bg-[#9d5f04]"></button>
+      </section>
+      <article
+        class="flex bg-blue-100 text-center justify-between mt-8 text-3xl py-4">
+        <section class="flex-1 flex flex-col items-center">
+          <p>Cable Head</p>
+          <div class="grid grid-cols-1 grid-flow-row my-4 gap-2 w-3/4 px-4">
+            <div
+              class="bg-white h-4 color-change cursor-pointer relative overflow-hidden"></div>
+            <div class="bg-white h-4 color-change cursor-pointer"></div>
+            <div class="bg-white h-4 color-change cursor-pointer"></div>
+            <div class="bg-white h-4 color-change cursor-pointer"></div>
+            <div class="bg-white h-4 color-change cursor-pointer"></div>
+            <div class="bg-white h-4 color-change cursor-pointer"></div>
+            <div class="bg-white h-4 color-change cursor-pointer"></div>
+            <div class="bg-white h-4 color-change cursor-pointer"></div>
+          </div>
+        </section>
+        <section class="flex-1 flex flex-col items-center">
+          <p>Cable Tail</p>
+          <div class="grid grid-cols-1 grid-flow-row my-4 gap-2 w-3/4 px-4">
+            <div
+              class="bg-white h-4 color-change cursor-pointer relative overflow-hidden"></div>
+            <div class="bg-white h-4 color-change cursor-pointer"></div>
+            <div class="bg-white h-4 color-change cursor-pointer"></div>
+            <div class="bg-white h-4 color-change cursor-pointer"></div>
+            <div class="bg-white h-4 color-change cursor-pointer"></div>
+            <div class="bg-white h-4 color-change cursor-pointer"></div>
+            <div class="bg-white h-4 color-change cursor-pointer"></div>
+            <div class="bg-white h-4 color-change cursor-pointer"></div>
+          </div>
+        </section>
+      </article>
+      <div
+        class="w-8 h-8 bg-white rounded-full absolute top-0 left-0"
+        id="selected-color"></div>
+    </main>
+    <script src="Assets/js/index.js"></script>
+  </body>
+</html>
