@@ -33,4 +33,15 @@
   background: repeating-linear-gradient(45deg, #6f4403, #6f4403 10px, white 10px, white 20px);
 }
 
+@media (hover: none) {
+  #selected-color {
+    display: none;
+  }
+}
+@media (hover: hover) {
+  #blinker {
+    display: none;
+  }
+}
+
 /*# sourceMappingURL=index.css.map */

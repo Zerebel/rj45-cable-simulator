@@ -40,4 +40,13 @@
   @include repeat-gradient-background(#6f4403, white);
 }
 
-
+@media (hover: none) {
+  #selected-color {
+    display: none;
+  }
+}
+@media (hover: hover) {
+  #blinker {
+    display: none;
+  }
+}

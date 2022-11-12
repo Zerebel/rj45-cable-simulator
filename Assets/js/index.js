@@ -1,6 +1,7 @@
 const colorSelector = document.querySelectorAll('.color-pick');
 const Cables = document.querySelectorAll('.color-change');
 const selected = document.querySelector('#selected-color');
+const blinker = document.querySelector('#blinker');
 const logs = document.querySelector('#logs');
 const backgroundColors = [
   'bg-orange-white',
@@ -34,10 +35,19 @@ getClickedItem();
 
 const setSelectedColor = (newColor) => {
   selected.classList.remove(...selected.classList);
+  blinker.classList.remove(...blinker.classList);
   selected.classList.add(newColor, 'w-6', 'h-6', 'rounded-full', 'absolute');
+  blinker.classList.add(
+    newColor,
+    'self-center',
+    'w-6',
+    'h-6',
+    'rounded-full',
+    'animate-pulse'
+  );
+  console.log(blinker);
   return (color = newColor);
 };
-
 // change cursor color
 const dragItem = (e) => {
   selected.style.left = e.pageX + 'px';
