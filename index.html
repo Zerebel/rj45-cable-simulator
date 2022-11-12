@@ -7,29 +7,39 @@
     <title>Ethernet Cable Termination</title>
     <link rel="stylesheet" href="Assets/Style/output.css" />
   </head>
-  <body class="bg-slate-100">
-    <header class="text-center bg-slate-400 text-slate-200 text-5xl py-4">
+  <body class="bg-slate-100 flex flex-col h-screen">
+    <header
+      class="text-center bg-slate-400 text-slate-200 text-3xl md:text-5xl py-4">
       <h1>Ethernet Cable Termination</h1>
     </header>
-    <main class="my-4 relative">
+    <main class="mt-4 relative">
+      <!-- Buttons -->
       <section
         class="w-fit m-auto bg-slate-300 flex justify-center gap-4 p-4 rounded-md">
         <button
           data-col="bow"
-          class="color-pick w-8 h-8 rounded-md bg-orange-white"></button>
-        <button class="color-pick w-8 h-8 rounded-md bg-[#ffa500]"></button>
-        <button class="color-pick w-8 h-8 rounded-md bg-green-white"></button>
-        <button class="color-pick w-8 h-8 rounded-md bg-[#008000]"></button>
-        <button class="color-pick w-8 h-8 rounded-md bg-blue-white"></button>
-        <button class="color-pick w-8 h-8 rounded-md bg-[#0000ff]"></button>
-        <button class="color-pick w-8 h-8 rounded-md bg-brown-white"></button>
-        <button class="color-pick w-8 h-8 rounded-md bg-[#9d5f04]"></button>
+          class="color-pick w-6 h-6 md:w-8 md:h-8 rounded-md bg-orange-white"></button>
+        <button
+          class="color-pick w-6 h-6 md:w-8 md:h-8 rounded-md bg-[#ffa500]"></button>
+        <button
+          class="color-pick w-6 h-6 md:w-8 md:h-8 rounded-md bg-green-white"></button>
+        <button
+          class="color-pick w-6 h-6 md:w-8 md:h-8 rounded-md bg-[#008000]"></button>
+        <button
+          class="color-pick w-6 h-6 md:w-8 md:h-8 rounded-md bg-blue-white"></button>
+        <button
+          class="color-pick w-6 h-6 md:w-8 md:h-8 rounded-md bg-[#0000ff]"></button>
+        <button
+          class="color-pick w-6 h-6 md:w-8 md:h-8 rounded-md bg-brown-white"></button>
+        <button
+          class="color-pick w-6 h-6 md:w-8 md:h-8 rounded-md bg-[#9d5f04]"></button>
       </section>
+      <!-- Cables -->
       <article
-        class="flex bg-blue-100 text-center justify-between mt-8 text-3xl py-4">
+        class="flex bg-blue-100 text-center justify-between mt-8 text-xl md:text-3xl py-4">
         <section class="flex-1 flex flex-col items-center">
           <p>Cable Head</p>
-          <div class="grid grid-cols-1 grid-flow-row my-4 gap-2 w-3/4 px-4">
+          <div class="grid grid-cols-1 grid-flow-row my-4 gap-2 w-3/4 md:px-4">
             <div
               class="bg-white h-4 color-change cursor-pointer"
               data-cable="cable1-left"></div>
@@ -56,10 +66,12 @@
               data-cable="cable8-left"></div>
           </div>
         </section>
-        <div class="self-center w-4 h-4 bg-green-500 rounded-full"></div>
+        <div
+          class="self-center w-4 h-4 bg-green-500 rounded-full animate-pulse"
+          id="blinker"></div>
         <section class="flex-1 flex flex-col items-center">
           <p>Cable Tail</p>
-          <div class="grid grid-cols-1 grid-flow-row my-4 gap-2 w-3/4 px-4">
+          <div class="grid grid-cols-1 grid-flow-row my-4 gap-2 w-3/4 md:px-4">
             <div
               class="bg-white h-4 color-change cursor-pointer"
               data-cable="cable1-right"
@@ -96,16 +108,20 @@
         </section>
       </article>
       <div
-        class="w-4 h-4 bg-white rounded-full absolute"
+        class="w-4 h-4 bg-white rounded-full absolute lg:block hidden"
         id="selected-color"></div>
+      <section
+        class="bg-slate-400 flex justify-center py-4 text-lime-600 font-bold">
+        <button
+          class="bg-sky-100 text-base md:text-xl py-1 md:px-4 px-2 hover:text-green-500 hover:bg-sky-200 rounded-xl tracking-widest"
+          id="test">
+          TEST
+        </button>
+      </section>
     </main>
     <footer
-      class="bg-slate-300 flex justify-center py-4 text-lime-600 font-bold">
-      <button
-        class="bg-sky-100 text-xl py-1 px-4 hover:text-green-500 hover:bg-sky-200 rounded-xl tracking-widest"
-        id="test">
-        TEST
-      </button>
+      class="bg-slate-400 text-white w-full flex-1 h-full overflow-scroll border-t-2 text-xl">
+      <div id="logs" class="md:pl-8 pl-2">1 passed</div>
     </footer>
     <script src="Assets/js/index.js"></script>
   </body>

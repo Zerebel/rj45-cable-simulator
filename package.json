@@ -4,7 +4,8 @@
   "description": "An ethernet cable simulator",
   "main": "index.js",
   "scripts": {
-    "tail": "tailwindcss -i ./Assets/Style/index.css -o ./Assets/Style/output.css --watch"
+    "tail": "tailwindcss -i ./Assets/Style/index.css -o ./Assets/Style/output.css --watch",
+    "sass": "sass Assets/Style:Assets/Style --watch"
   },
   "repository": {
     "type": "git",

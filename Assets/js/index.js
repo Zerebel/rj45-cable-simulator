@@ -1,6 +1,7 @@
 const colorSelector = document.querySelectorAll('.color-pick');
 const Cables = document.querySelectorAll('.color-change');
 const selected = document.querySelector('#selected-color');
+const logs = document.querySelector('#logs');
 const backgroundColors = [
   'bg-orange-white',
   'bg-[#ffa500]',
@@ -68,13 +69,14 @@ const changeItemColor = () =>
   });
 changeItemColor();
 
-const cableIndex = {
+let cableIndex = {
   left: 0,
   right: 8,
   color: 0,
   l: 0,
   r: 8,
 };
+const defaultCableIndex = { ...cableIndex };
 const runTest = () => {
   const modifyBgColor = [
     'bg-orange-white-repeat',
@@ -92,35 +94,37 @@ const runTest = () => {
   });
 
   const runCheck = () => {
+    console.log(cableIndex.left);
+    if (cableIndex.left === 8) {
+      clearInterval(newInterval);
+      cableIndex = { ...defaultCableIndex };
+      return test.setAttribute('disabled', 'false');
+    }
+    const logText = document.createElement('p');
     if (
-      cable[cableIndex.left].classList[4] === modifyBgColor[cableIndex.color] &&
-      cable[cableIndex.right].classList[4] === modifyBgColor[cableIndex.color]
+      cable[cableIndex.left]?.classList[4] ===
+        modifyBgColor[cableIndex.color] &&
+      cable[cableIndex.right]?.classList[4] === modifyBgColor[cableIndex.color]
     ) {
-      cable[cableIndex.left].childNodes[0].classList.remove('hidden');
-      cable[cableIndex.right].childNodes[0].classList.remove('hidden');
-      console.log(cable[0].childNodes[0].classList);
+      cable[cableIndex.left]?.childNodes[0].classList.remove('hidden');
+      cable[cableIndex.right]?.childNodes[0].classList.remove('hidden');
+      logText.textContent = `Cable ${cableIndex.left + 1} passed`;
+    } else {
+      logText.textContent = `Cable ${cableIndex.left + 1} failed`;
     }
     setTimeout(() => {
       cable[cableIndex.l]?.childNodes[0]?.classList.add('hidden');
       cable[cableIndex.r]?.childNodes[0]?.classList.add('hidden');
       cableIndex.l++;
       cableIndex.r++;
+      return logs.appendChild(logText);
     }, 1000);
     cableIndex.left++;
     cableIndex.right++;
     cableIndex.color++;
-    if (cableIndex.left > 8) {
-      cableIndex.left = 0;
-      cableIndex.right = 8;
-      cableIndex.l = 0;
-      cableIndex.r = 8;
-      cableIndex.color = 0;
-      clearInterval(newInterval);
-      return;
-    }
   };
   const newInterval = setInterval(runCheck, 1000);
-  return;
+  return test.setAttribute('disabled', 'true');
 };
 
 const test = document.querySelector('#test');
