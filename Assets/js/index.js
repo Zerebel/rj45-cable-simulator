@@ -139,3 +139,4 @@ const runTest = () => {
 
 const test = document.querySelector('#test');
 test.addEventListener('click', runTest, { passive: false });
+//TODO: add selected to local storage
