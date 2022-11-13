@@ -159,4 +159,20 @@ const logMessage = ({ text }) => {
 
 const test = document.querySelector('#test');
 test.addEventListener('click', runTest, false);
-//TODO: add selected to local storage
+
+// reseting page
+const resetCables = () => {
+  Cables.forEach((wire) => {
+    wire.classList.remove(...wire.classList);
+    wire.classList.add(
+      'h-4',
+      'color-change',
+      'cursor-pointer',
+      'relative',
+      'bg-white'
+    );
+  });
+};
+
+const reset = document.querySelector('#reset');
+reset.addEventListener('click', resetCables, false);
