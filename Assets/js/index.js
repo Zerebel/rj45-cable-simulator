@@ -45,7 +45,6 @@ const setSelectedColor = (newColor) => {
     'rounded-full',
     'animate-pulse'
   );
-  console.log(blinker);
   return (color = newColor);
 };
 // change cursor color
@@ -84,10 +83,14 @@ let cableIndex = {
   right: 8,
   color: 0,
   l: 0,
-  r: 8,
 };
 const defaultCableIndex = { ...cableIndex };
+
+let newInterval;
+
 const runTest = () => {
+  if (cableIndex.left > 0) test.disabled = true;
+
   const modifyBgColor = [
     'bg-orange-white-repeat',
     'bg-[#ffa500]',
@@ -98,45 +101,62 @@ const runTest = () => {
     'bg-[#9d5f04]',
     'bg-brown-white-repeat',
   ];
+
   const cable = [];
+
   Cables.forEach((wire) => {
     cable.push(wire);
   });
 
+  if (!newInterval) newInterval = setInterval(runTest, 800);
+
+  if (cableIndex.l === 8) {
+    cableIndex = { ...defaultCableIndex };
+    clearInterval(newInterval);
+    newInterval = null;
+    return (test.disabled = false);
+  }
+
   const runCheck = () => {
-    console.log(cableIndex.left);
-    if (cableIndex.left === 8) {
-      clearInterval(newInterval);
-      cableIndex = { ...defaultCableIndex };
-      return test.setAttribute('disabled', 'false');
-    }
-    const logText = document.createElement('p');
     if (
-      cable[cableIndex.left]?.classList[4] ===
-        modifyBgColor[cableIndex.color] &&
-      cable[cableIndex.right]?.classList[4] === modifyBgColor[cableIndex.color]
+      cable[cableIndex.left]?.classList[4] === modifyBgColor[cableIndex.left] &&
+      cable[cableIndex.right]?.classList[4] === modifyBgColor[cableIndex.left]
     ) {
-      cable[cableIndex.left]?.childNodes[0].classList.remove('hidden');
-      cable[cableIndex.right]?.childNodes[0].classList.remove('hidden');
-      logText.textContent = `Cable ${cableIndex.left + 1} passed`;
-    } else {
-      logText.textContent = `Cable ${cableIndex.left + 1} failed`;
+      return runAnimation({
+        passed: [cable[cableIndex.left], cable[cableIndex.right], cableIndex.l],
+      });
     }
-    setTimeout(() => {
-      cable[cableIndex.l]?.childNodes[0]?.classList.add('hidden');
-      cable[cableIndex.r]?.childNodes[0]?.classList.add('hidden');
-      cableIndex.l++;
-      cableIndex.r++;
-      return logs.appendChild(logText);
-    }, 1000);
-    cableIndex.left++;
-    cableIndex.right++;
-    cableIndex.color++;
+    return runAnimation({ failed: [cableIndex.l] });
   };
-  const newInterval = setInterval(runCheck, 1000);
-  return test.setAttribute('disabled', 'true');
+  runCheck();
+  for (const key in cableIndex) {
+    if (Object.hasOwnProperty.call(cableIndex, key)) {
+      cableIndex[key]++;
+    }
+  }
+  return;
+};
+
+const runAnimation = ({ passed, failed }) => {
+  if (passed) {
+    passed[0]['childNodes'][0]?.classList.remove('hidden');
+    passed[1]['childNodes'][0]?.classList.remove('hidden');
+    return setTimeout(() => {
+      passed[0]['childNodes'][0]?.classList.add('hidden');
+      passed[1]['childNodes'][0]?.classList.add('hidden');
+      logMessage({ text: `Cable ${passed[2] + 1} Passed` });
+    }, 800);
+  }
+
+  return logMessage({ text: `Cable ${failed[0] + 1} Failed` });
+};
+
+const logMessage = ({ text }) => {
+  const logText = document.createElement('p');
+  logText.textContent = text;
+  return logs.prepend(logText);
 };
 
 const test = document.querySelector('#test');
-test.addEventListener('click', runTest, { passive: false });
+test.addEventListener('click', runTest, false);
 //TODO: add selected to local storage
